@@ -1,4 +1,4 @@
-package com.example.anime;
+package org.ginryan.fadebutton;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -50,8 +50,7 @@ public class FadeButton extends Button {
 		mGestureDetector = new GestureDetector(getContext(), mListener);
 		ColorDrawable normalStateColor = new ColorDrawable(normalColor);
 		ColorDrawable pressedStateColor = new ColorDrawable(pressedColor);
-		mTransitionDrawable = new TransitionDrawable(new Drawable[] {
-				normalStateColor, pressedStateColor });
+		mTransitionDrawable = new TransitionDrawable(new Drawable[] { normalStateColor, pressedStateColor });
 		if (Build.VERSION.SDK_INT > 16) {
 			setBackground(mTransitionDrawable);
 		} else {
@@ -72,7 +71,7 @@ public class FadeButton extends Button {
 		mGestureDetector.onTouchEvent(event);
 		switch (event.getActionMasked()) {
 		case MotionEvent.ACTION_UP:
-			performClick();
+			// now do nothing
 			break;
 		}
 		return super.onTouchEvent(event);

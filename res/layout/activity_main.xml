@@ -7,23 +7,21 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.anime.MainActivity" >
+    tools:context="org.ginryan.fadebutton.demoui.MainActivity" >
 
-    <com.example.anime.Circle
+    <org.ginryan.fadebutton.CircleButton
         android:id="@+id/circle"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:background="#EEEEEE"
-        android:text="Reveal效果按钮" />
+        android:text="Reveal Effect Button" />
 
-    <com.example.anime.FadeButton 
+    <org.ginryan.fadebutton.FadeButton 
         android:id="@+id/fadebutton"
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
         android:padding="9dp"
-        android:text="自定义Transition效果按钮"
+        android:text="Transition Effect Button"
         />
     
 </LinearLayout>

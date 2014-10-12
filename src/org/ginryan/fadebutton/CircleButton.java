@@ -1,18 +1,15 @@
-package com.example.anime;
+package org.ginryan.fadebutton;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
-import android.graphics.RectF;
-import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Button;
 
-public class Circle extends Button {
+public class CircleButton extends Button {
 	/**
 	 * 圆心x坐标
 	 */
@@ -32,17 +29,17 @@ public class Circle extends Button {
 	private int mNormalColor = Color.GRAY;
 	private int mPressedColor = Color.TRANSPARENT;
 
-	public Circle(Context context) {
+	public CircleButton(Context context) {
 		super(context);
 		init();
 	}
 
-	public Circle(Context context, AttributeSet attrs) {
+	public CircleButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init();
 	}
 
-	public Circle(Context context, AttributeSet attrs, int defStyleAttr) {
+	public CircleButton(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		init();
 	}
@@ -68,7 +65,6 @@ public class Circle extends Button {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		super.onTouchEvent(event);
 		switch (event.getActionMasked()) {
 		case MotionEvent.ACTION_DOWN:
 			centerX = event.getX();
@@ -79,7 +75,7 @@ public class Circle extends Button {
 			invalidateState();
 			break;
 		}
-		return true;
+		return super.onTouchEvent(event);
 	}
 
 	Runnable runner = new Runnable() {
@@ -113,11 +109,10 @@ public class Circle extends Button {
 
 	@Override
 	protected void onDraw(Canvas canvas) {
+		canvas.drawColor(mNormalColor);//先绘制一层颜色，看看有没有问题
 		canvas.drawCircle(centerX, centerY, radius, paint);
 		// canvas.drawRoundRect(rectF, 0, 0, paint);
 		super.onDraw(canvas);
-
-		// canvas.drawColor(mNormalColor);
 	}
 
 }
