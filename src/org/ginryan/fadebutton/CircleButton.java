@@ -71,6 +71,7 @@ public class CircleButton extends Button {
 			centerY = event.getY();
 			// 重新初始化画笔
 			init();
+			removeCallbacks(runner);
 			// 刷新状态
 			invalidateState();
 			break;
@@ -88,7 +89,7 @@ public class CircleButton extends Button {
 
 	protected void invalidateState() {
 		// 半径增加
-		radius += 10;
+		radius += 13;
 		int step = 10;
 		int nextAlpha = 0;
 
@@ -102,7 +103,7 @@ public class CircleButton extends Button {
 		// 更新页面执行onDraw()
 		invalidate();
 		if (paint.getAlpha() != 0) {
-			postDelayed(runner, 1);
+			postDelayed(runner, 2);
 		}
 
 	}
